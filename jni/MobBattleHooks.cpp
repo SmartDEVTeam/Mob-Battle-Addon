@@ -9,4 +9,5 @@ static void Item$initCreativeItems() {
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) { 
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
+	return JNI_VERSION_1_2;
 }
