@@ -125,7 +125,7 @@ public:
 	virtual CameraItemComponent releaseUsing(ItemInstance*, Player*, int);
 	virtual float getDestroySpeed(ItemInstance*, const Block*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
-	virtual CameraItemComponent interactEnemy(ItemInstance*, Mob*, Player*);
+	virtual void interactEnemy(ItemInstance*, Mob*, Player*);
 	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
 	virtual const std::string buildDescriptionName(const ItemInstance&) const;
 	virtual const std::string buildEffectDescriptionName(const ItemInstance&) const;

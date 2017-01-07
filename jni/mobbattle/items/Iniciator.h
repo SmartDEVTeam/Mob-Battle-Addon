@@ -8,6 +8,7 @@ public:
     Iniciator(const std::string &name, short id);
 	
 	virtual bool canDestroyInCreative() const;
-	virtual CameraItemComponent interactEnemy(ItemInstance*, Mob*, Player*);
+	virtual void interactEnemy(ItemInstance*, Mob*, Player*);
+	virtual const std::string buildDescriptionName(const ItemInstance&) const;
 };
 
