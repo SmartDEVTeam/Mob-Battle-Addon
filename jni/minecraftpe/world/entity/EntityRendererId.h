@@ -1,7 +1,6 @@
 #pragma once
 
-enum class EntityRendererId : int
-{
+enum class EntityRendererId : int {
 	PRIMEDTNT = 2,
 	HUMANOID,
 	ITEM,
@@ -47,3 +46,4 @@ enum class EntityRendererId : int
 	WITCH,
 	MAP = 50,
 };
+

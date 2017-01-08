@@ -1,22 +1,21 @@
 #pragma once
 
-#include "mcpe/entity/Mob.h"
-#include "mcpe/gamemode/GameType.h"
+#include "../Mob.h"
+#include "../../../gamemode/GameType.h"
 class ChunkSource;
 class GlobalPermissionsLevel;
 class UserPermissionsLevel;
 class BlockEntity;
 class TelemetryEventPacket;
-class Inventory;
 
-class Player : public Mob 
-{
+class Player : public Mob {
 public:
-	char filler2[2971];
+	char filler[2971];
 	bool creativeMode;
 	bool surivivalMode;
 
 	virtual ~Player();
+	virtual bool onLadder(bool);
 	virtual void remove();
 	virtual void getAddPacket();
 	virtual void normalTick();
@@ -28,6 +27,8 @@ public:
 	virtual bool isShootable();
 	virtual bool isCreativeModeAllowed();
 	virtual void hurt(const EntityDamageSource&, int);
+	virtual void onBounceStarted(const BlockPos&, const FullBlock&);
+	virtual void handleEntityEvent(EntityEvent);
 	virtual void awardKillScore(Entity&, int);
 	virtual void setEquippedSlot(ArmorSlot, int, int);
 	virtual void setEquippedSlot(ArmorSlot, const ItemInstance&);
@@ -44,7 +45,7 @@ public:
 	virtual void setSpeed(float);
 	virtual void travel(float, float);
 	virtual void aiStep();
-	virtual ItemInstance* getCarriedItem();
+	virtual ItemInstance& getCarriedItem();
 	virtual int getItemUseDuration();
 	virtual void dropAllGear(int);
 	virtual void drop(const ItemInstance*, bool);
@@ -106,14 +107,13 @@ public:
 	virtual void onMovePlayerPacketNormal(const Vec3&, const Vec2&);
 
 	ItemInstance* getSelectedItem() const;
-	bool isCreative() const;
-	bool isSurvival() const;
-	bool isViewer() const;
+	bool IsCreative() const;
+	bool IsSurvival() const;
+	bool IsViewer() const;
+	Dimension *getDimension() const;
 	bool hasRespawnPosition() const;
 	BlockPos getSpawnPosition();
 	void setRespawnPosition(const BlockPos&);
 	void setSkin(const std::string&, const std::string&);
 	void take(Entity&, int);
-	void attack(Entity&);
-	Inventory& getInventory()const;
 };

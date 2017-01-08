@@ -1,2 +1,5 @@
 # Mob-Battle-Addon
-Code 95% by Khristian-Kun, 5% by SantaPixel
+Made by Khristian-Kun with the help of SantaPixel and @TheLuckyCoder
+
+Make a mob attack another or make two fight each other.
+
